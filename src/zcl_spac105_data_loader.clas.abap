@@ -1,0 +1,94 @@
+CLASS ZCL_SPAC105_DATA_LOADER DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC.
+
+  PUBLIC SECTION.
+    INTERFACES if_oo_adt_classrun.
+
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+    METHODS:
+      fill_table
+        RETURNING VALUE(r_output) TYPE string
+        RAISING cx_sy_open_sql_db,
+      cleanup
+        RETURNING VALUE(r_output) TYPE STRING.
+
+ENDCLASS.
+
+
+CLASS ZCL_SPAC105_DATA_LOADER IMPLEMENTATION.
+
+  METHOD if_oo_adt_classrun~main.
+
+    out->write( cleanup(  ) ).
+
+    TRY.
+      out->write( fill_table(  ) ).
+    CATCH cx_sy_open_sql_db INTO DATA(lx).
+      out->write( |Couldn't write entries to table. Error: { lx->get_longtext(  ) }| ).
+    ENDTRY.
+
+  ENDMETHOD.
+
+
+  METHOD fill_table.
+*                                  ÆNDR TABELNAVNET
+*                                  vvvvvvvvvvvvvvvv
+    DATA: temp_table TYPE TABLE OF  ZSPAC105_INVENT .
+*                                  ^^^^^^^^^^^^^^^^
+
+    temp_table = VALUE #(
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+*   Ændr data herunder, når du vil fylde data på andre tabeller
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+      ( warehouse_id = 11 product_id = 1 amount =   31 )
+      ( warehouse_id = 21 product_id = 4 amount =  421 )
+      ( warehouse_id = 31 product_id = 5 amount =   11 )
+      ( warehouse_id = 41 product_id = 5 amount = 3211 )
+      ( warehouse_id = 51 product_id = 1 amount =  201 )
+      ( warehouse_id = 61 product_id = 5 amount =   91 )
+      ( warehouse_id = 71 product_id = 3 amount =   51 )
+      ( warehouse_id = 81 product_id = 2 amount =   41 )
+      ( warehouse_id = 91 product_id = 4 amount =   01 )
+      ( warehouse_id = 101 product_id = 3 amount =   81 )
+      ( warehouse_id = 111 product_id = 3 amount = 1001 )
+      ( warehouse_id = 121 product_id = 2 amount =   71 )
+      ( warehouse_id = 131 product_id = 4 amount =   01 )
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+*   Ændr data herover, når du vil fylde data på andre tabeller
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    ).
+
+    TRY.
+*            ÆNDR TABELNAVNET
+*            vvvvvvvvvvvvvvvv
+      INSERT  ZSPAC105_INVENT  FROM TABLE @( CORRESPONDING #( temp_table ) ).
+*            ^^^^^^^^^^^^^^^^
+
+    CATCH cx_sy_open_sql_db INTO DATA(lx).
+      RAISE EXCEPTION lx.
+    ENDTRY.
+
+    r_output = |Inserted { sy-dbcnt } entries into table.|.
+
+  ENDMETHOD.
+
+  METHOD cleanup.
+
+*               ÆNDR TABELNAVNET
+*               vvvvvvvvvvvvvvvv
+    DELETE FROM  ZSPAC105_INVENT .
+*               ^^^^^^^^^^^^^^^^
+
+    IF sy-subrc <> 0.
+      ROLLBACK WORK.
+      r_output = |Cleanup failed. Error: { sy-subrc }.|.
+    ELSE.
+      COMMIT WORK.
+      r_output = |Successfully cleaned up { sy-dbcnt } entries.|.
+    ENDIF.
+
+  ENDMETHOD.
+ENDCLASS.
