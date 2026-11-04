@@ -30,13 +30,14 @@ CLASS ZCL_SPAC105_DATA_LOADER IMPLEMENTATION.
       out->write( |Couldn't write entries to table. Error: { lx->get_longtext(  ) }| ).
     ENDTRY.
 
+
   ENDMETHOD.
 
 
   METHOD fill_table.
 *                                  ÆNDR TABELNAVNET
 *                                  vvvvvvvvvvvvvvvv
-    DATA: temp_table TYPE TABLE OF  ZSPAC105_INVENT .
+    DATA: temp_table TYPE TABLE OF  ZSPAC105_STOCK .
 *                                  ^^^^^^^^^^^^^^^^
 
     temp_table = VALUE #(
@@ -44,18 +45,18 @@ CLASS ZCL_SPAC105_DATA_LOADER IMPLEMENTATION.
 *   Ændr data herunder, når du vil fylde data på andre tabeller
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
       ( warehouse_id = 11 product_id = 1 amount =   31 )
-      ( warehouse_id = 21 product_id = 4 amount =  421 )
-      ( warehouse_id = 31 product_id = 5 amount =   11 )
-      ( warehouse_id = 41 product_id = 5 amount = 3211 )
-      ( warehouse_id = 51 product_id = 1 amount =  201 )
-      ( warehouse_id = 61 product_id = 5 amount =   91 )
-      ( warehouse_id = 71 product_id = 3 amount =   51 )
-      ( warehouse_id = 81 product_id = 2 amount =   41 )
-      ( warehouse_id = 91 product_id = 4 amount =   01 )
-      ( warehouse_id = 101 product_id = 3 amount =   81 )
-      ( warehouse_id = 111 product_id = 3 amount = 1001 )
-      ( warehouse_id = 121 product_id = 2 amount =   71 )
-      ( warehouse_id = 131 product_id = 4 amount =   01 )
+      ( warehouse_id = 11 product_id = 4 amount =  421 )
+      ( warehouse_id = 11 product_id = 5 amount =   11 )
+      ( warehouse_id = 21 product_id = 5 amount = 3211 )
+      ( warehouse_id = 21 product_id = 1 amount =  201 )
+      ( warehouse_id = 31 product_id = 5 amount =   91 )
+      ( warehouse_id = 11 product_id = 3 amount =   51 )
+      ( warehouse_id = 11 product_id = 2 amount =   41 )
+      ( warehouse_id = 21 product_id = 4 amount =   0 )
+      ( warehouse_id = 21 product_id = 3 amount =   81 )
+      ( warehouse_id = 31 product_id = 3 amount = 1001 )
+      ( warehouse_id = 21 product_id = 2 amount =   71 )
+      ( warehouse_id = 31 product_id = 4 amount =   0 )
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 *   Ændr data herover, når du vil fylde data på andre tabeller
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -64,7 +65,7 @@ CLASS ZCL_SPAC105_DATA_LOADER IMPLEMENTATION.
     TRY.
 *            ÆNDR TABELNAVNET
 *            vvvvvvvvvvvvvvvv
-      INSERT  ZSPAC105_INVENT  FROM TABLE @( CORRESPONDING #( temp_table ) ).
+      INSERT  ZSPAC105_STOCK  FROM TABLE @( CORRESPONDING #( temp_table ) ).
 *            ^^^^^^^^^^^^^^^^
 
     CATCH cx_sy_open_sql_db INTO DATA(lx).
@@ -79,7 +80,7 @@ CLASS ZCL_SPAC105_DATA_LOADER IMPLEMENTATION.
 
 *               ÆNDR TABELNAVNET
 *               vvvvvvvvvvvvvvvv
-    DELETE FROM  ZSPAC105_INVENT .
+    DELETE FROM  ZSPAC105_STOCK .
 *               ^^^^^^^^^^^^^^^^
 
     IF sy-subrc <> 0.

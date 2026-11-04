@@ -5,6 +5,6 @@ define root view entity ZC_SPAC105_STOCK
   provider contract transactional_query as projection on ZR_SPAC105_STOCK
 {
   key WarehouseId,
-  productId,
-  Amount_in_kroner
+  key productId,
+  Amount
 }
