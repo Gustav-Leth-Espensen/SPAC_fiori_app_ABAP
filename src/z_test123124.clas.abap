@@ -238,6 +238,159 @@ CLASS z_test123124 IMPLEMENTATION.
 *  out->write( text ).
 
 
+*  DATA number TYPE i.
+*  number = -1.
+*
+*  CASE number.
+*    WHEN 10.
+*      out->write( 'Test 1' ).
+*    WHEN 25.
+*      out->write( 'Test 2' ).
+*    WHEN 0.
+*      out->write( 'Test 3' ).
+*    WHEN OTHERS.
+*      out->write( 'Test 4' ).
+*  ENDCASE.
+
+*    IF number = 0.
+*      out->write( `The value of NUMBER equals zero`            ).
+*    ELSEIF number > 0.
+*      out->write( `The value of NUMBER is greater than zero`   ).
+*    ELSE.
+*      out->write( `The value of NUMBER is less than zero`      ).
+*    ENDIF.
+
+
+
+* Declarations
+**********************************************************************
+*  DATA result TYPE i.
+*
+*  DATA numbers TYPE TABLE OF i.
+*
+** Preparation
+***********************************************************************
+*
+*  APPEND 123 TO numbers.
+*  APPEND 456 TO numbers.
+
+** Example 1: Conversion Error (no Number)
+***********************************************************************
+*
+**  CONSTANTS c_text TYPE string VALUE 'ABC'.
+*  CONSTANTS c_text TYPE string VALUE '123'.
+*
+*  out->write(  `---------------------------` ).
+*  out->write(  `Example 1: Conversion Error` ).
+*  out->write(  `---------------------------` ).
+*
+*  TRY.
+*      result = c_text.
+*      out->write( |Converted content is { result }|  ).
+*    CATCH cx_sy_conversion_no_number.
+*      out->write( |Error: { c_text } is not a number!| ).
+*  ENDTRY.
+
+* Example 2: Division by Zero
+**********************************************************************
+*
+**  CONSTANTS c_number TYPE i VALUE 0.
+*  CONSTANTS c_number TYPE i VALUE 7.
+*
+*  out->write(  `---------------------------` ).
+*  out->write(  `Example 2: Division by Zero` ).
+*  out->write(  `---------------------------` ).
+*
+*  TRY.
+*      result = 100 / c_number.
+*      out->write( |100 divided by { c_number } equals { result }| ).
+*    CATCH cx_sy_zerodivide.
+*      out->write(  `Error: Division by zero is not defined!` ).
+*  ENDTRY.
+**
+* Example 3: Itab Error (Line Not Found)
+**********************************************************************
+
+*  CONSTANTS c_index TYPE i VALUE 3.
+*  CONSTANTS c_index TYPE i VALUE 1.
+
+*  out->write(  `-------------------------` ).
+*  out->write(  `Example 3: Line Not Found` ).
+*  out->write(  `-------------------------` ).
+*
+*  TRY.
+*      result = numbers[ c_index ].
+*      out->write( |Content of row { c_index } equals { result }| ).
+*    CATCH cx_sy_itab_line_not_found.
+*      out->write( |Error: Itab has less than { c_index } rows!| ).
+*  ENDTRY.
+
+*
+** Example 4: Combination of Different Exceptions
+***********************************************************************
+*  CONSTANTS c_char TYPE c LENGTH 1 VALUE 'X'.
+*  CONSTANTS c_char TYPE c length 1 value '0'.
+*  CONSTANTS c_char TYPE c LENGTH 1 VALUE '1'.
+*  CONSTANTS c_char TYPE c length 1 value '3'.
+
+*  out->write(  `----------------------` ).
+*  out->write(  `Example 4: Combination` ).
+*  out->write(  `----------------------` ).
+*
+*  TRY.
+*      result = numbers[ 3 / c_char ].
+*      out->write( |Result: { result } | ).
+*    CATCH cx_sy_zerodivide.
+*      out->write( `Error: Division by zero is not defined`  ).
+*    CATCH cx_sy_conversion_no_number.
+*      out->write( |Error: { c_char } is not a number! | ).
+*    CATCH cx_sy_itab_line_not_found.
+*      out->write( |Error: Itab contains less than { 2 / c_char } rows| ).
+*  ENDTRY.
+
+
+*  DO 10 TIMES.
+*    out->write( 'Fuck alting' ).
+*  ENDDO.
+
+*  DATA value TYPE i VALUE 0.
+*
+*  DO.
+*    value = value + 1.
+*    out->write( |{ value }| ).
+*    IF value > 5.
+*      EXIT.
+*     ENDIF.
+*  ENDDO.
+
+
+  DATA number TYPE i.
+  DATA numbers TYPE TABLE OF i.
+  DATA numbers_2 TYPE TABLE OF i.
+
+  APPEND 1234 TO numbers.
+  APPEND number TO numbers.
+  APPEND 987 TO numbers.
+*
+*  out->write( numbers[ 1 ] ).
+*  out->write( numbers[ 2 ] ).
+*  out->write( numbers[ 3 ] ).
+
+  LOOP AT numbers INTO number.
+    APPEND number to numbers_2.
+    out->write( |{ number }| ).
+  ENDLOOP.
+
+  LOOP AT numbers_2 INTO DATA(number_2).
+    out->write( |ROW: { sy-tabix }| ).
+    out->write( |CONTENT: { number_2 }| ).
+  ENDLOOP.
+
+  out->write( '--------' ).
+
+
+
+
 
 
 
