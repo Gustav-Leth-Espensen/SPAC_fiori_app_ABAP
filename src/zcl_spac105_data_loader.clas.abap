@@ -44,19 +44,19 @@ CLASS ZCL_SPAC105_DATA_LOADER IMPLEMENTATION.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 *   Ændr data herunder, når du vil fylde data på andre tabeller
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-      ( warehouse_id = 11 product_id = 1 amount =   31 )
-      ( warehouse_id = 11 product_id = 4 amount =  421 )
-      ( warehouse_id = 11 product_id = 5 amount =   11 )
-      ( warehouse_id = 21 product_id = 5 amount = 3211 )
-      ( warehouse_id = 21 product_id = 1 amount =  201 )
-      ( warehouse_id = 31 product_id = 5 amount =   91 )
-      ( warehouse_id = 11 product_id = 3 amount =   51 )
-      ( warehouse_id = 11 product_id = 2 amount =   41 )
-      ( warehouse_id = 21 product_id = 4 amount =   0 )
-      ( warehouse_id = 21 product_id = 3 amount =   81 )
-      ( warehouse_id = 31 product_id = 3 amount = 1001 )
-      ( warehouse_id = 21 product_id = 2 amount =   71 )
-      ( warehouse_id = 31 product_id = 4 amount =   0 )
+      ( warehouse_id = 1 product_id = 1 amount =   31 )
+      ( warehouse_id = 1 product_id = 4 amount =  421 )
+      ( warehouse_id = 1 product_id = 5 amount =   11 )
+      ( warehouse_id = 2 product_id = 5 amount = 3211 )
+      ( warehouse_id = 2 product_id = 1 amount =  201 )
+      ( warehouse_id = 3 product_id = 5 amount =   91 )
+      ( warehouse_id = 1 product_id = 3 amount =   51 )
+      ( warehouse_id = 1 product_id = 2 amount =   41 )
+      ( warehouse_id = 2 product_id = 4 amount =   0 )
+      ( warehouse_id = 2 product_id = 3 amount =   81 )
+      ( warehouse_id = 3 product_id = 3 amount = 1001 )
+      ( warehouse_id = 2 product_id = 2 amount =   71 )
+      ( warehouse_id = 3 product_id = 4 amount =   0 )
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 *   Ændr data herover, når du vil fylde data på andre tabeller
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

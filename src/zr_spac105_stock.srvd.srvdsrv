@@ -1,4 +1,0 @@
-@EndUserText.label: 'Service definition'
-define service ZR_SPAC105_STOCK {
-  expose ZR_SPAC105_STOCK;
-}

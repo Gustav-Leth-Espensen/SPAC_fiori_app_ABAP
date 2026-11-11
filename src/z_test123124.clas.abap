@@ -363,31 +363,39 @@ CLASS z_test123124 IMPLEMENTATION.
 *     ENDIF.
 *  ENDDO.
 
-
-  DATA number TYPE i.
-  DATA numbers TYPE TABLE OF i.
-  DATA numbers_2 TYPE TABLE OF i.
-
-  APPEND 1234 TO numbers.
-  APPEND number TO numbers.
-  APPEND 987 TO numbers.
 *
-*  out->write( numbers[ 1 ] ).
-*  out->write( numbers[ 2 ] ).
-*  out->write( numbers[ 3 ] ).
+*  DATA number TYPE i.
+*  DATA numbers TYPE TABLE OF i.
+*  DATA numbers_2 TYPE TABLE OF i.
+*
+*  APPEND 1234 TO numbers.
+*  APPEND number TO numbers.
+*  APPEND 987 TO numbers.
+**
+**  out->write( numbers[ 1 ] ).
+**  out->write( numbers[ 2 ] ).
+**  out->write( numbers[ 3 ] ).
+*
+*  LOOP AT numbers INTO number.
+*    APPEND number to numbers_2.
+*    out->write( |{ number }| ).
+*  ENDLOOP.
+*
+*  LOOP AT numbers_2 INTO DATA(number_2).
+*    out->write( |ROW: { sy-tabix }| ).
+*    out->write( |CONTENT: { number_2 }| ).
+*  ENDLOOP.
+*
+*  out->write( '--------' ).
 
-  LOOP AT numbers INTO number.
-    APPEND number to numbers_2.
-    out->write( |{ number }| ).
-  ENDLOOP.
 
-  LOOP AT numbers_2 INTO DATA(number_2).
-    out->write( |ROW: { sy-tabix }| ).
-    out->write( |CONTENT: { number_2 }| ).
-  ENDLOOP.
+  DATA char_i TYPE c LENGTH 5 VALUE 'hej12'.
+  DATA char_o TYPE c LENGTH 1.
+  DATA string1 TYPE string VALUE '12'.
+  DATA string2 TYPE string VALUE '12'.
 
-  out->write( '--------' ).
-
+*  char_o = char_i[ 1 ].
+  out->write( boolc( string1 = string2 ) ).
 
 
 
