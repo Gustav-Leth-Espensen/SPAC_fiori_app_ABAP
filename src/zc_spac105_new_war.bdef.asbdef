@@ -1,0 +1,16 @@
+projection implementation in class zbp_c_spac105_new_war unique;
+strict ( 2 );
+use draft;
+
+define behavior for ZC_SPAC105_NEW_WAR alias NEW_STOCK
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Activate;
+  use action Discard;
+  use action Edit;
+  use action Resume;
+  use action Prepare;
+}
