@@ -7,6 +7,8 @@ CLASS lhc_STOCK DEFINITION INHERITING FROM cl_abap_behavior_handler.
     METHODS get_global_authorizations FOR GLOBAL AUTHORIZATION
       REQUEST requested_authorizations FOR stock RESULT result.
 
+
+
 ENDCLASS.
 
 CLASS lhc_STOCK IMPLEMENTATION.
@@ -16,5 +18,6 @@ CLASS lhc_STOCK IMPLEMENTATION.
 
   METHOD get_global_authorizations.
   ENDMETHOD.
+
 
 ENDCLASS.

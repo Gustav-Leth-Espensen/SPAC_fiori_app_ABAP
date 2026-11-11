@@ -2,6 +2,7 @@ managed implementation in class zbp_r_spac105_stock unique;
 strict ( 2 );
 
 
+
 define behavior for ZR_SPAC105_STOCK alias STOCK
 persistent table zspac105_stock
 lock master
@@ -14,10 +15,17 @@ authorization master ( instance )
   field ( readonly ) WarehouseId;
   field ( readonly ) productId;
   field ( readonly ) Amount;
+  field ( readonly ) Price;
+  field ( readonly ) productName;
+  field ( readonly ) warehouseName;
+
+
   mapping for ZSPAC105_STOCK
   {
   warehouseId = warehouse_Id;
   productId = Product_Id;
   Amount = amount;
+
   }
+
 }
