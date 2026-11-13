@@ -1,15 +1,5 @@
-class ZBP_R_SPAC105_NEW_WAR definition
-  public
-  abstract
-  final
-  create public .
-
-public section.
-protected section.
-private section.
+CLASS zbp_r_spac105_new_war DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zr_spac105_new_war.
 ENDCLASS.
 
-
-
-CLASS ZBP_R_SPAC105_NEW_WAR IMPLEMENTATION.
+CLASS zbp_r_spac105_new_war IMPLEMENTATION.
 ENDCLASS.

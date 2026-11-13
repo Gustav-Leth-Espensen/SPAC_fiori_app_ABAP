@@ -10,7 +10,6 @@ total etag LastChangedAt
 
 authorization master ( instance )
 etag master LocalLastChangeAT
-early numbering
 {
   draft action Activate optimized;
   draft action Discard;
@@ -21,7 +20,7 @@ early numbering
   create ( authorization : global );
   update;
   delete;
-  field ( readonly ) ProductId;
+  field ( mandatory : create  ) ProductId;
   field ( mandatory : create ) WarehouseId;
   field ( mandatory : create ) Amount;
   field ( readonly : update ) Price;

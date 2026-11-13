@@ -6,19 +6,48 @@ define root view entity ZR_SPAC105_NEW_WAR as select from zspac105_new_war
 
 
 {
+
+  @UI.facet: [{purpose: #STANDARD,  type: #FIELDGROUP_REFERENCE}]
+  @UI.lineItem: [{ position: 30}]
+  @UI.identification: [{ position: 30 }]
+  @EndUserText.label: 'product Id'  
   key product_id as ProductId,
+  @UI.facet: [{purpose: #STANDARD,  type: #FIELDGROUP_REFERENCE}]
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+  @EndUserText.label: 'Warehouse Id'
   warehouse_id as WarehouseId,
+  @UI.facet: [{purpose: #STANDARD,  type: #FIELDGROUP_REFERENCE}]
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+  @EndUserText.label: 'Amount'
   amount as Amount,
+  @UI.facet: [{purpose: #STANDARD,  type: #FIELDGROUP_REFERENCE}]
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+  @EndUserText.label: 'Price'
   price as Price,
+  @UI.facet: [{purpose: #STANDARD,  type: #FIELDGROUP_REFERENCE}]
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+  @EndUserText.label: 'Product Name'
   product_name as ProductName,
+  @UI.facet: [{purpose: #STANDARD,  type: #FIELDGROUP_REFERENCE}]
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]  
+  @EndUserText.label: 'Description'
   description as Description,
   
-  locallastchangeat as LocalLastChangeAT,
-  locallastchangeby as LocalLastChangeBy,
-  lastchangedat as LastChangedAt,
+  @Semantics.user.createdBy: true
   localcreatedby as LocalCreatedBy,
-  localcreatedat as LocalCreatedAt
-  
+  @Semantics.systemDateTime.createdAt: true
+  localcreatedat as LocalCreatedAt,
+  @Semantics.user.lastChangedBy: true
+  locallastchangeby as LocalLastChangeBy,
+  @Semantics.systemDateTime.lastChangedAt: true
+  lastchangedat as LastChangedAt,
+  @Semantics.systemDateTime.localInstanceLastChangedAt: true
+  locallastchangeat as LocalLastChangeAT
   
   
   
