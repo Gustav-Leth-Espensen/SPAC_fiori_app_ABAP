@@ -1,4 +1,0 @@
-@EndUserText.label: 'Service definition for projection view new war'
-define service ZUI_SPAC105_NEW_WAR_O4 {
-  expose ZC_SPAC105_NEW_WAR;
-}

@@ -1,23 +1,30 @@
 managed implementation in class zbp_r_spac105_stock unique;
 strict ( 2 );
-
-
+with draft;
 
 define behavior for ZR_SPAC105_STOCK alias STOCK
 persistent table zspac105_stock
+draft table zspac105_stock_d
 lock master
+total etag LastChangedAt
 authorization master ( instance )
-//etag master <field_name>
+etag master LocalLastChangeAT
 {
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
   create ( authorization : global );
   update;
   delete;
-  field ( readonly ) WarehouseId;
-  field ( readonly ) productId;
-  field ( readonly ) Amount;
-  field ( readonly ) Price;
-  field ( readonly ) productName;
-  field ( readonly ) warehouseName;
+  field ( readonly : update ) WarehouseId;
+  field ( readonly : update ) productId;
+  field ( mandatory : create ) Amount;
+  field ( mandatory : create ) Price;
+  field ( readonly : update ) productName;
+  field ( readonly : update ) warehouseName;
 
 
   mapping for ZSPAC105_STOCK
@@ -26,6 +33,11 @@ authorization master ( instance )
   productId = Product_Id;
   Amount = amount;
 
+  LocalLastChangeAT = locallastchangeat;
+  LastChangedAt = lastchangedat;
+  LocalCreatedBy = localcreatedby;
+  LocalCreatedAt = localcreatedat;
+  LocalLastChangeBy = locallastchangeby;
   }
 
 }
