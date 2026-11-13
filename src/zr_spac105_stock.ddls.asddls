@@ -3,8 +3,8 @@
 @Metadata.ignorePropagatedAnnotations: true
 define root view entity ZR_SPAC105_STOCK as select from zspac105_stock
 
-  association [1..1] to zspac105_warehou as _meta_warehouse   on $projection.warehouseid = _meta_warehouse.warehouse_id
-  association [1..1] to zspac105_new_war as _meta_stock            on $projection.productId = _meta_stock.product_id
+  association [0..1] to zspac105_warehou as _meta_warehouse   on $projection.warehouseid = _meta_warehouse.warehouse_id
+  association [0..1] to zspac105_product as _meta_stock            on $projection.productId = _meta_stock.product_id
   
 
 {
@@ -12,7 +12,6 @@ define root view entity ZR_SPAC105_STOCK as select from zspac105_stock
   @Search.defaultSearchElement: true
   @Search.fuzzinessThreshold: 0.8
   @ObjectModel.text.association: '_meta_warehouse'
-  @UI.facet: [{purpose: #STANDARD,  type: #FIELDGROUP_REFERENCE}]
   key warehouse_id as warehouseid,
   
   @Search.defaultSearchElement: true
@@ -20,6 +19,7 @@ define root view entity ZR_SPAC105_STOCK as select from zspac105_stock
   @ObjectModel.text.association: '_meta_stock'  
   key product_id as productId,
   amount as Amount,
+  
   _meta_stock.price as Price,
   _meta_stock.product_name as productName,
   _meta_stock.description as Description,

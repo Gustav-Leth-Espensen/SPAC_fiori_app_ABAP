@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZCL_SPAC105_DATA_LOADER_NEW_WA</CLSNAME>
+    <CLSNAME>ZCL_SPAC105_DATA_LOADER_PROD</CLSNAME>
     <LANGU>E</LANGU>
     <DESCRIPT>Data loader for NEW WAR table</DESCRIPT>
     <STATE>1</STATE>

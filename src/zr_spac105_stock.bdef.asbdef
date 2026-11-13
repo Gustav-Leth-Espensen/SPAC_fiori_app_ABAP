@@ -7,7 +7,7 @@ persistent table zspac105_stock
 draft table zspac105_stock_d
 lock master
 total etag LastChangedAt
-authorization master ( instance )
+authorization master ( global, instance )
 etag master LocalLastChangeAT
 {
   draft action Activate optimized;
@@ -16,22 +16,32 @@ etag master LocalLastChangeAT
   draft action Resume;
   draft determine action Prepare;
 
-  create ( authorization : global );
+  create;
   update;
   delete;
-  field ( readonly : update ) WarehouseId;
-  field ( readonly : update ) productId;
-  field ( mandatory : create ) Amount;
-  field ( mandatory : create ) Price;
-  field ( readonly : update ) productName;
-  field ( readonly : update ) warehouseName;
+
+  field (readonly : update)
+  WarehouseId,
+  ProductId;
+
+  field (readonly)
+  Price,
+  ProductName,
+  WarehouseName,
+  CityName,
+  Description,
+  Postnummer;
+
+  field (mandatory : update)
+  Amount;
 
 
-  mapping for ZSPAC105_STOCK
+  mapping for ZSPAC105_STOCK corresponding
   {
   warehouseId = warehouse_Id;
   productId = Product_Id;
   Amount = amount;
+
 
   LocalLastChangeAT = locallastchangeat;
   LastChangedAt = lastchangedat;

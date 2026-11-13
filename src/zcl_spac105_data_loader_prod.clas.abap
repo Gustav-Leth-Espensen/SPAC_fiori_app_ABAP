@@ -1,4 +1,4 @@
-CLASS ZCL_SPAC105_DATA_LOADER_NEW_WA DEFINITION
+CLASS ZCL_SPAC105_DATA_LOADER_PROD DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC.
@@ -18,7 +18,7 @@ CLASS ZCL_SPAC105_DATA_LOADER_NEW_WA DEFINITION
 ENDCLASS.
 
 
-CLASS ZCL_SPAC105_DATA_LOADER_NEW_WA IMPLEMENTATION.
+CLASS ZCL_SPAC105_DATA_LOADER_PROD IMPLEMENTATION.
 
   METHOD if_oo_adt_classrun~main.
 
@@ -37,19 +37,19 @@ CLASS ZCL_SPAC105_DATA_LOADER_NEW_WA IMPLEMENTATION.
   METHOD fill_table.
 *                                  ÆNDR TABELNAVNET
 *                                  vvvvvvvvvvvvvvvv
-    DATA: temp_table TYPE TABLE OF  ZSPAC105_NEW_WAR .
+    DATA: temp_table TYPE TABLE OF  ZSPAC105_PRODUCT .
 *                                  ^^^^^^^^^^^^^^^^
 
     temp_table = VALUE #(
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 *   Ændr data herunder, når du vil fylde data på andre tabeller
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-      ( product_id = 1 warehouse_id = 1 amount = 231 price =   100 product_name = 'Toilet paper' description = 'To wipe your butt.' )
-      ( product_id = 2 warehouse_id = 1 amount = 212 price =   90 product_name = 'Your MOM' description = 'Usfull for a lot of different siutations, but mostly for fun ;)' )
-      ( product_id = 3 warehouse_id = 2 amount = 133 price =   330 product_name = 'Your DAD' description = 'Mowes the lawn occationally.' )
-      ( product_id = 4 warehouse_id = 2 amount = 13 price =   1200 product_name = 'Super Man' description = 'Small doll looking like supermann, comes with batteries and the flex2000 pack.' )
-      ( product_id = 5 warehouse_id = 3 amount = 9 price =   509 product_name = 'Something Else' description = 'What else do you need.' )
-      ( product_id = 6 warehouse_id = 3 amount = 231 price =   100 product_name = 'Toilet paper' description = 'To wipe your butt. Different type of paper.' )
+      ( product_id = 1  amount = 231 price =   100 product_name = 'Toilet paper' description = 'To wipe your butt.' )
+      ( product_id = 2  amount = 212 price =   90 product_name = 'Your MOM' description = 'Usfull for a lot of different siutations, but mostly for fun ;)' )
+      ( product_id = 3  amount = 133 price =   330 product_name = 'Your DAD' description = 'Mowes the lawn occationally.' )
+      ( product_id = 4  amount = 13 price =   1200 product_name = 'Super Man' description = 'Small doll looking like supermann, comes with batteries and the flex2000 pack.' )
+      ( product_id = 5  amount = 9 price =   509 product_name = 'Something Else' description = 'What else do you need.' )
+      ( product_id = 6  amount = 231 price =   100 product_name = 'Toilet paper' description = 'To wipe your butt. Different type of paper.' )
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 *   Ændr data herover, når du vil fylde data på andre tabeller
@@ -59,7 +59,7 @@ CLASS ZCL_SPAC105_DATA_LOADER_NEW_WA IMPLEMENTATION.
     TRY.
 *            ÆNDR TABELNAVNET
 *            vvvvvvvvvvvvvvvv
-      INSERT  ZSPAC105_NEW_WAR  FROM TABLE @( CORRESPONDING #( temp_table ) ).
+      INSERT  ZSPAC105_PRODUCT  FROM TABLE @( CORRESPONDING #( temp_table ) ).
 *            ^^^^^^^^^^^^^^^^
 
     CATCH cx_sy_open_sql_db INTO DATA(lx).
@@ -74,7 +74,7 @@ CLASS ZCL_SPAC105_DATA_LOADER_NEW_WA IMPLEMENTATION.
 
 *               ÆNDR TABELNAVNET
 *               vvvvvvvvvvvvvvvv
-    DELETE FROM  ZSPAC105_NEW_WAR .
+    DELETE FROM  ZSPAC105_PRODUCT .
 *               ^^^^^^^^^^^^^^^^
 
     IF sy-subrc <> 0.

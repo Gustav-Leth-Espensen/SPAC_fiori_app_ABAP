@@ -46,8 +46,6 @@ CLASS ZCL_SPAC105_DATA_LOADER IMPLEMENTATION.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
       ( warehouse_id = 1 product_id = 1 amount =   31 )
       ( warehouse_id = 1 product_id = 4 amount =  421 )
-      ( warehouse_id = 1 product_id = 5 amount =   11 )
-      ( warehouse_id = 2 product_id = 5 amount = 3211 )
       ( warehouse_id = 2 product_id = 1 amount =  201 )
       ( warehouse_id = 3 product_id = 5 amount =   91 )
       ( warehouse_id = 1 product_id = 3 amount =   51 )

@@ -1,4 +1,6 @@
 @EndUserText.label: 'Service definition for projection view'
 define service ZUI_SPAC105_STOCK_O4 {
-  expose ZC_SPAC105_STOCK as im_the_best;
+  expose ZC_SPAC105_STOCK   as general_show;
+  expose ZC_SPAC105_PRODUCT as meta_product;
+  expose ZC_SPAC105_WAREHOU as meta_warehouse;
 }

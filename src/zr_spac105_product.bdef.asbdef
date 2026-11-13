@@ -1,0 +1,53 @@
+managed implementation in class zbp_r_spac105_product unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_SPAC105_PRODUCT alias NEW_PRODUCT
+persistent table zspac105_product
+draft table zspac105_prod_d
+lock master
+total etag LastChangedAt
+authorization master ( global, instance )
+etag master LocalLastChangeAT
+
+{
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  create;
+  update;
+  delete;
+
+
+  field (readonly : update )
+  ProductId,
+  ProductName,
+  Description;
+
+  field (readonly)
+  Amount;
+
+  field (mandatory : update)
+  Price;
+
+
+  mapping for ZSPAC105_PRODUCT corresponding
+  {
+  productId = Product_Id;
+  Price = price;
+  ProductName = product_name;
+  Description = description;
+
+  LocalLastChangeAT = locallastchangeat;
+  LastChangedAt = lastchangedat;
+  LocalCreatedBy = localcreatedby;
+  LocalCreatedAt = localcreatedat;
+  LocalLastChangeBy = locallastchangeby;
+  }
+
+
+
+}
