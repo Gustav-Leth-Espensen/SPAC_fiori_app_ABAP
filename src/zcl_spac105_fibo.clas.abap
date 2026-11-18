@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_spac105_fibo IMPLEMENTATION.
+CLASS ZCL_SPAC105_FIBO IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -56,6 +56,3 @@ CLASS zcl_spac105_fibo IMPLEMENTATION.
 
   ENDMETHOD.
 ENDCLASS.
-
-
-

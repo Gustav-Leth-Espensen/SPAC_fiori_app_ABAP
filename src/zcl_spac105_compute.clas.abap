@@ -12,8 +12,7 @@ ENDCLASS.
 
 
 
-
-CLASS zcl_spac105_compute IMPLEMENTATION.
+CLASS ZCL_SPAC105_COMPUTE IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.

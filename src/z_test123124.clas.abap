@@ -11,7 +11,8 @@ ENDCLASS.
 
 
 
-CLASS z_test123124 IMPLEMENTATION.
+CLASS Z_TEST123124 IMPLEMENTATION.
+
 
   METHOD if_oo_adt_classrun~main.
 
@@ -389,19 +390,10 @@ CLASS z_test123124 IMPLEMENTATION.
 *  out->write( '--------' ).
 
 
-  DATA char_i TYPE c LENGTH 5 VALUE 'hej12'.
-  DATA char_o TYPE c LENGTH 1.
-  DATA string1 TYPE string VALUE '12'.
-  DATA string2 TYPE string VALUE '12'.
-
-*  char_o = char_i[ 1 ].
-  out->write( boolc( string1 = string2 ) ).
-
 
 
 
 
 
   ENDMETHOD.
-
 ENDCLASS.

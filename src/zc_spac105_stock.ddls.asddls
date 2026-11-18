@@ -28,6 +28,7 @@ define root view entity ZC_SPAC105_STOCK
   @EndUserText.label: 'Amount'  
   Amount,
   @UI.identification: [{ position: 50 }]
+  @EndUserText.label: 'Price'
   Price,
   @UI.identification: [{ position: 60 }]
   @EndUserText.label: 'Product Name'
@@ -39,8 +40,10 @@ define root view entity ZC_SPAC105_STOCK
   @EndUserText.label: 'City Name'
   CityName,
   @UI.identification: [{ position: 90 }]
+  @EndUserText.label: 'Description'
   Description,
   @UI.identification: [{ position: 100 }]
+  @EndUserText.label: 'Postnummer'
   Postnummer,
   
   @UI.hidden: true

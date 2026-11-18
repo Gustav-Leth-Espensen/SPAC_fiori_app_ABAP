@@ -21,7 +21,6 @@ etag master LocalLastChangeAT
   update;
   delete;
 
-
   field (readonly : update )
   ProductId,
   ProductName,
@@ -32,6 +31,8 @@ etag master LocalLastChangeAT
 
   field (mandatory : update)
   Price;
+
+
 
 
   mapping for ZSPAC105_PRODUCT corresponding
