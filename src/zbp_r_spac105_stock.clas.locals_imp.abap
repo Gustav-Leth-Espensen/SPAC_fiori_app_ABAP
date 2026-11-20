@@ -133,7 +133,7 @@ CLASS lhc_STOCK IMPLEMENTATION.
         APPEND VALUE #( %tky                 = check-%tky
                         %state_area          = state_validate_Amount
                         %msg                 = NEW zcx_behavior( textid      = zcx_behavior=>amount_invalid
-                                                                   productID = check-amount )
+                                                                   amounts = check-amount )
                         %element-amount = if_abap_behv=>mk-on )
                TO reported-STOCK.
       ENDIF.

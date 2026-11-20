@@ -15,25 +15,34 @@ etag master LocalLastChangeAT
   draft action Discard;
   draft action Edit;
   draft action Resume;
-  draft determine action Prepare;
 
   create;
   update;
   delete;
 
-  field (readonly : update )
+  field (mandatory : create)
   ProductId,
-  ProductName,
+  ProductName;
+
+  field (readonly : update )
   Description;
 
   field (readonly)
+  EAN,
   Amount;
 
   field (mandatory : update)
   Price;
 
+  determination create_EAN_number on save {field EAN;}
+
+  validation validatePositivePrice on save { create; field Price; }
 
 
+draft determine action Prepare
+   {
+   validation validatePositivePrice;
+  }
 
   mapping for ZSPAC105_PRODUCT corresponding
   {
@@ -41,6 +50,7 @@ etag master LocalLastChangeAT
   Price = price;
   ProductName = product_name;
   Description = description;
+  EAN = EAN_number;
 
   LocalLastChangeAT = locallastchangeat;
   LastChangedAt = lastchangedat;

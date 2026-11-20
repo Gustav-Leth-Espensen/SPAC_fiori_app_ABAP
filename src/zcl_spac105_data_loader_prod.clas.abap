@@ -46,13 +46,11 @@ CLASS ZCL_SPAC105_DATA_LOADER_PROD IMPLEMENTATION.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 *   Ændr data herunder, når du vil fylde data på andre tabeller
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-      ( product_id = 1  amount = 231 price =   100 product_name = 'Toilet paper' description = 'To wipe your butt.' )
-      ( product_id = 2  amount = 212 price =   90 product_name = 'Your MOM' description = 'Usfull for a lot of different siutations, but mostly for fun ;)' )
-      ( product_id = 3  amount = 133 price =   330 product_name = 'Your DAD' description = 'Mowes the lawn occationally.' )
-      ( product_id = 4  amount = 13 price =   1200 product_name = 'Super Man' description = 'Small doll looking like supermann, comes with batteries and the flex2000 pack.' )
-      ( product_id = 5  amount = 9 price =   509 product_name = 'Something Else' description = 'What else do you need.' )
-      ( product_id = 6  amount = 231 price =   100 product_name = 'Toilet paper' description = 'To wipe your butt. Different type of paper.' )
-
+      ( product_id = 1 ean_number = 5703000000012 price =   100 product_name = 'Toilet paper' description = 'To wipe your butt.' )
+      ( product_id = 2 ean_number = 5703000000029  price =   90 product_name = 'Your MOM' description = 'Usfull for a lot of different siutations, but mostly for fun ;)' )
+      ( product_id = 3 ean_number = 5703000000036  price =   330 product_name = 'Your DAD' description = 'Mowes the lawn occationally.' )
+      ( product_id = 4 ean_number = 5703000000043  price =   1200 product_name = 'Super Man' description = 'Small doll looking like supermann, comes with batteries and the flex2000 pack.' )
+      ( product_id = 5 ean_number = 5703000000050  price =   509 product_name = 'Something Else' description = 'What else do you need.' )
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 *   Ændr data herover, når du vil fylde data på andre tabeller
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

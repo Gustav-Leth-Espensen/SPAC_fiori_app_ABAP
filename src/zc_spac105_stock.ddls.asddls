@@ -45,6 +45,9 @@ define root view entity ZC_SPAC105_STOCK
   @UI.identification: [{ position: 100 }]
   @EndUserText.label: 'Postnummer'
   Postnummer,
+  @UI.identification: [{ position: 110 }]
+  @EndUserText.label: 'EAN-Number'
+  EAN,
   
   @UI.hidden: true
   LocalLastChangeAT,

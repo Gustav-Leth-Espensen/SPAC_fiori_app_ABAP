@@ -23,6 +23,7 @@ define root view entity ZR_SPAC105_STOCK as select from zspac105_stock
   _meta_stock.price as Price,
   _meta_stock.product_name as productName,
   _meta_stock.description as Description,
+  _meta_stock.ean_number as EAN,
   
   _meta_warehouse.city_name as CityName,
   _meta_warehouse.postnummer as Postnummer,

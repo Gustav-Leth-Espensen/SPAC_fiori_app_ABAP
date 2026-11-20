@@ -37,13 +37,27 @@ CLASS zcx_behavior DEFINITION
         attr2 TYPE scx_attrname VALUE '',
         attr3 TYPE scx_attrname VALUE '',
         attr4 TYPE scx_attrname VALUE '',
-     END OF amount_invalid.
+     END OF amount_invalid,
+
+
+
+     BEGIN OF price_invalid,
+        msgid TYPE symsgid VALUE message_class,
+        msgno TYPE symsgno VALUE '004',
+        attr1 TYPE scx_attrname VALUE '',
+        attr2 TYPE scx_attrname VALUE '',
+        attr3 TYPE scx_attrname VALUE '',
+        attr4 TYPE scx_attrname VALUE '',
+     END OF price_invalid.
 
 
 
     DATA:
       mv_warehouse_id TYPE ZSPAC105_STOCK-warehouse_Id,
-      mv_product_id TYPE ZSPAC105_STOCK-product_Id.
+      mv_product_id TYPE ZSPAC105_STOCK-product_Id,
+      mv_amounts TYPE i,
+      mv_price TYPE i.
+
 
 
      METHODS:
@@ -54,6 +68,8 @@ CLASS zcx_behavior DEFINITION
           severity     TYPE if_abap_behv_message=>t_severity DEFAULT  if_abap_behv_message=>severity-error
           warehouseID TYPE ZSPAC105_STOCK-warehouse_Id OPTIONAL
           productID TYPE ZSPAC105_STOCK-product_Id OPTIONAL
+          amounts TYPE i OPTIONAL
+          price TYPE int8 OPTIONAL
             PREFERRED PARAMETER textid
         .
 
@@ -73,6 +89,8 @@ CLASS zcx_behavior IMPLEMENTATION.
 
   me->mv_warehouse_id = warehouseid.
   me->mv_product_id = productid.
+  me->mv_amounts  = amounts.
+  me->mv_price = price.
 
   CLEAR me->textid.
   IF textid IS INITIAL.

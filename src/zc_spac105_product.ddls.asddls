@@ -32,6 +32,9 @@ define root view entity ZC_SPAC105_PRODUCT
   @UI.identification: [{ position: 50 }]  
   @EndUserText.label: 'Description'    
   Description,
+  @UI.identification: [{ position: 65 }]  
+  @EndUserText.label: 'EAN-Number' 
+  EAN,
   
   @UI.hidden: true  
   Amount,

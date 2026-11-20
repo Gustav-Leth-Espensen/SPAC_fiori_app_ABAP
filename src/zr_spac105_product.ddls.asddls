@@ -8,6 +8,7 @@ association [0..1] to zspac105_stock as _stock            on $projection.Product
 
 {
   key product_id as ProductId,
+  ean_number as EAN,
   price as Price,
   product_name as ProductName,
   description as Description,
